@@ -14,6 +14,7 @@ using namespace std;
 // glu/glew
 
 #include<GL/glew.h>
+#include<GL/glut.h>
 #include<GL/glu.h>
 #include<GL/gl.h>
 

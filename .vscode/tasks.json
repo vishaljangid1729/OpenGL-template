@@ -15,6 +15,7 @@
                 "-lGL",
                 "-lGLEW",
                 "-lGLU",
+                "-lglut",
                 "-lSDL2main",
                 "-lSDL2",
                 "-lSDL2_image"
