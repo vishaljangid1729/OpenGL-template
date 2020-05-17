@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
     SDL_GLContext glContest = SDL_GL_CreateContext(window);
     glutInit(&argc, argv);
-    glutCreateWindow("This is title of the window");
+    // glutCreateWindow("This is title of the window");
     GLenum err = glewInit();
     if (GLEW_OK != err)
     {
@@ -31,10 +31,30 @@ int main(int argc, char *argv[])
 
     // Ready buffer
     bool isRunning = true;
+
+    float positions[6] = {
+        -0.5f, -0.5f,
+        0.0f, 0.5f,
+        0.5f, -0.5f
+    };
+
+    unsigned int buffer;
+    glGenBuffers(1, &buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    glBufferData(GL_ARRAY_BUFFER, 6*sizeof(float), positions, GL_STATIC_DRAW);
+
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float)*2, 0);
+
+
+
+
     while (isRunning)
     {
+        glClear(GL_COLOR_BUFFER_BIT);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
         SDL_GL_SwapWindow(window);
-        glutSwapBuffers();
     }
 
 
@@ -43,7 +63,6 @@ int main(int argc, char *argv[])
     SDL_GL_DeleteContext(window);
 
     SDL_Quit();
-    cin.get();
 
     return 0;
 }
