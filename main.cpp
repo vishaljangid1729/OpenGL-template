@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     {
         /* Problem: glewInit failed, something is seriously wrong. */
         fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-    }
+    }else
     fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 
 
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
         "layout(location = 0 ) out vec4 color;\n"
         "void main()\n"
         "{\n"
-        "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"
+        "   color = vec4(1.0, 0.2, 1.0, 1.0);\n"
         "}\n";
     unsigned int shader = CreateShader(vertexShader, fragmentShader);
 
