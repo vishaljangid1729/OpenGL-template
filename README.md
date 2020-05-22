@@ -1,1 +1,1 @@
-# OpenGL-templete
+# OpenGL-template
